@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    
+    <title>Logistica Express - Gestão de Encomendas</title>
+</head>
+<body>
+    <header>
+        <p id="funcionario"></p>
+        <nav>
+            <a href="./index.html">Home</a>&emsp;&emsp;
+            <a href="./html/login.html">Login</a>&emsp;
+            <a href="#" id="logout">Sair</a>
+            <br><br><hr><br>
+
+            <span class="titulo_menu">Funcionários</span>&emsp;
+            <a href="./html/funcionario_cadastrar.html">Cadastrar</a>&emsp;
+            <br><br><hr><br>
+
+            <span class="titulo_menu">Motoristas</span>&emsp;
+            <a href="./html/motorista_cadastrar.html">Cadastrar</a>&emsp;
+            <a href="./html/motorista_listar.html">Listar / Buscar por nome</a>&emsp;
+            <a href="./html/motorista_consultar.html">Consultar</a>&emsp;
+            <a href="./html/motorista_atualizar.html">Atualizar</a>&emsp;
+            <a href="./html/motorista_apagar.html">Apagar</a>&emsp;
+            <br><br><hr><br>
+
+            <span class="titulo_menu">Cargas</span>&emsp;
+            <a href="./html/carga_cadastrar.html">Cadastrar</a>&emsp;
+            <a href="./html/carga_listar.html">Listar</a>&emsp;
+            <br><br><hr><br>
+
+            <span class="titulo_menu">Entregas</span>&emsp;
+            <a href="./html/entrega_cadastrar.html">Cadastrar</a>&emsp;
+            <a href="./html/entrega_atualizar.html">Atualizar</a>&emsp;
+            <a href="./html/entrega_listar.html">Listar</a>&emsp;
+            <br><br><hr><br>
+        </nav>
+    </header>
+    <main>
+        <h1>Painel de Controle - Logistica Express</h1>
+        <br><br>
+        <h2>Sistema de Gestão e Rastreamento de Encomendas</h2><br>
+        <div id="resposta" class="resposta"></div>
+    </main>
+<script>
+const token = localStorage.getItem('token')
+
+if (token) {
+    document.getElementById('funcionario').textContent = 'Funcionário: ' + localStorage.getItem('nomeFuncionario')
+} else {
+    document.getElementById('logout').hidden = true
+}
+
+document.getElementById('logout').addEventListener('click', (e) => {
+    e.preventDefault()
+    localStorage.removeItem('token')
+    localStorage.removeItem('nomeFuncionario')
+    location.href = './html/login.html'
+})
+</script>
+</body>
+</html>

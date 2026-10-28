@@ -1,0 +1,24 @@
+### Cadastrar funcionário: esperado 201
+POST http://localhost:3000/funcionario
+Content-Type: application/json
+
+{
+    "nome": "Emily Peres",
+    "email": "emily@gmail",
+    "senha": "123"
+}
+
+### Login com funcionário do script SQL
+# @name loginReq
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+    "email": "emily@gmail",
+    "senha": "123"
+}
+
+
+### Sem autenticação: esperado 401
+GET http://localhost:3000/motoristas
+
